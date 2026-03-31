@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Happy Birthday Farida 💜</title>
+    <style>
+        /* Updated Fonts: Playfair Display for elegance, Poppins for readability */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap');
+
+        :root {
+            --primary: #a83279;
+            --secondary: #fbc2eb;
+            --accent: #ff69b4;
+            --glass: rgba(255, 255, 255, 0.15);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #fbc2eb, #a6c1ee, #fad0c4);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            color: #fff;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            touch-action: manipulation;
+        }
+
+        @keyframes gradientShift {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        .page {
+            display: none;
+            height: 100vh;
+            width: 100vw;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            position: absolute;
+            top: 0; left: 0;
+        }
+
+        .active { display: flex; animation: fadeIn 0.8s ease-in-out; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: clamp(2.2rem, 8vw, 4rem); 
+            margin-bottom: 10px; 
+            text-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+            font-style: italic;
+        }
+        
+        p { font-weight: 300; max-width: 600px; line-height: 1.6; font-size: 1.1rem; padding: 0 10px; }
+
+        .btn {
+            margin-top: 30px;
+            padding: 15px 45px;
+            border: none;
+            background: #fff;
+            color: var(--primary);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: inline-block;
+            z-index: 100;
+        }
+
+        .btn:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+
+        /* Sticker Styles */
+        .sticker {
+            position: absolute;
+            width: clamp(80px, 15vw, 140px);
+            z-index: 10;
+            pointer-events: none;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+        }
+        .s-top-left { top: 5%; left: 5%; transform: rotate(-10deg); }
+        .s-top-right { top: 5%; right: 5%; transform: rotate(10deg); }
+        .s-bottom-left { bottom: 5%; left: 5%; transform: rotate(-5deg); }
+        .s-bottom-right { bottom: 5%; right: 5%; transform: rotate(15deg); }
+
+        /* CSS Cake */
+        .cake-container { margin-top: 40px; }
+        .cake {
+            position: relative;
+            width: 180px;
+            height: 100px;
+            background: #f9d9eb;
+            border-radius: 10px 10px 0 0;
+            box-shadow: inset 0 -10px 0 rgba(0,0,0,0.05);
+        }
+        .cake::before {
+            content: "";
+            position: absolute;
+            top: -35px; left: 50%;
+            transform: translateX(-50%);
+            width: 130px; height: 70px;
+            background: #f4b4d4;
+            border-radius: 10px 10px 0 0;
+            box-shadow: inset 0 -10px 0 rgba(0,0,0,0.05);
+        }
+        .candle {
+            position: absolute;
+            top: -65px; left: 50%;
+            transform: translateX(-50%);
+            width: 10px; height: 35px;
+            background: linear-gradient(#fff, #eee);
+            border-radius: 3px;
+        }
+        .flame {
+            position: absolute;
+            top: -15px; left: 50%;
+            transform: translateX(-50%);
+            width: 14px; height: 20px;
+            background: #ff9d00;
+            border-radius: 50% 50% 20% 20%;
+            box-shadow: 0 0 15px #ff9d00;
+            animation: flicker 0.1s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { transform: translateX(-50%) scale(1); opacity: 0.9; }
+            100% { transform: translateX(-50%) scale(1.2); opacity: 1; }
+        }
+
+        /* Gift Box Section */
+        .gift-container {
+            cursor: pointer;
+            margin: 40px 0;
+            transition: transform 0.2s;
+        }
+        .gift-box {
+            width: 100px;
+            height: 100px;
+            background: #fff;
+            position: relative;
+            border-radius: 8px;
+        }
+        .gift-box::before {
+            content: "";
+            position: absolute;
+            width: 100%; height: 15px;
+            background: var(--primary);
+            top: 42%; left: 0;
+        }
+        .gift-box::after {
+            content: "";
+            position: absolute;
+            height: 100%; width: 15px;
+            background: var(--primary);
+            left: 42%; top: 0;
+        }
+
+        .shaky { animation: shake 0.6s infinite; }
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            20% { transform: translate(-2px, 0px) rotate(-1deg); }
+            50% { transform: translate(1px, -1px) rotate(1deg); }
+            100% { transform: translate(-1px, 1px) rotate(0deg); }
+        }
+
+        #prank-btn {
+            position: relative;
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .footer-text {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.8rem;
+            opacity: 0.6;
+            width: 100%;
+        }
+
+        #canvas-confetti {
+            position: fixed;
+            top: 0; left: 0;
+            pointer-events: none;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="canvas-confetti"></canvas>
+
+    <!-- Page 1: Introduction -->
+    <div id="page1" class="page active">
+        <!-- New Sticker 1 -->
+        <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3c2Qya2p4d3lmY3RzNjB4bXg4ODByOHJvMjhldWtlanB1ZXRiYTVvZSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/QxppxLafWsyzgMhMsK/giphy.gif" class="sticker s-top-left" alt="Happy Sticker">
+        <!-- Original Cat Sticker 1 -->
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHlxeW50cHl6aHJtYmQ2dXNxZG5iY2ZwbzE1ejVjcmJubTMydjVsNSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/GPV6LaVEUPhvKlsJcv/giphy.gif" class="sticker s-bottom-right" alt="Cat Sticker">
+        
+        <h1>Happy Birthday, Farida</h1>
+        <p>I wanted to celebrate you in a way that’s as unique as you are. Shall we begin?</p>
+        <button class="btn" onclick="nextPage(2)">Open the Celebration ➔</button>
+    </div>
+
+    <!-- Page 2: The Cake -->
+    <div id="page2" class="page">
+        <!-- New Sticker 2 -->
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTl6d2lqMWtmMTFxd3g1cnJ6OGZhYmxodHBydTZ6eDJuODlyYWtkbiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/cRKRr1j0bcCUPGhcdx/giphy.gif" class="sticker s-top-right" alt="Celebrate">
+        <!-- Original Cat Sticker 2 -->
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWVkZ3k5Y2d6eXNqajR4ZWFjaXFqNG1ydXZpdzl5dHZqYTBlODRyZiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/yXhSjI8XO2CmWmsx2P/giphy.gif" class="sticker s-bottom-left" alt="Party Cat">
+        
+        <h1>A Moment for You</h1>
+        <div class="cake-container">
+            <div class="cake">
+                <div class="candle"><div class="flame"></div></div>
+            </div>
+        </div>
+        <p style="margin-top: 40px;">To another year of incredible memories, growth, and joy. You deserve the world today and every day.</p>
+        <button class="btn" onclick="nextPage(3)">Continue ➔</button>
+    </div>
+
+    <!-- Page 3: The Prank -->
+    <div id="page3" class="page">
+        <!-- New Sticker 3 -->
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTl6d2lqMWtmMTFxd3g1cnJ6OGZhYmxodHBydTZ6eDJuODlyYWtkbiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/MhYGO6XdrbUb19Ld1q/giphy.gif" class="sticker s-top-left" alt="Sparkle">
+        <!-- Original Cat Sticker 3 -->
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWVkZ3k5Y2d6eXNqajR4ZWFjaXFqNG1ydXZpdzl5dHZqYTBlODRyZiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/eVy5UemPAA4tC2Fuul/giphy.gif" class="sticker s-bottom-right" alt="Cat Sparkle">
+        
+        <h1>A Small Surprise</h1>
+        <div class="gift-container shaky" id="gift-click">
+            <div class="gift-box"></div>
+        </div>
+        <p id="gift-text">The box seems to be locked... click to try opening it!</p>
+        <div id="btn-wrapper" style="height: 100px; display: flex; align-items: center; justify-content: center;">
+            <button id="prank-btn" class="btn" style="display:none;" onclick="nextPage(4)">Try this instead! ➔</button>
+        </div>
+    </div>
+
+    <!-- Page 4: Final Reward -->
+    <div id="page4" class="page">
+        <!-- New Sticker 4 -->
+        <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3NDk1ZnltODRkeHptN2xnZ3lxOTdpbXMxbGl1Ymp0b2wycWhjbzJhbSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/W4jyjmIpnw6e38B6Qc/giphy.gif" class="sticker s-top-right" alt="Party Time">
+        <!-- Original Cat Sticker 4 -->
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWVkZ3k5Y2d6eXNqajR4ZWFjaXFqNG1ydXZpdzl5dHZqYTBlODRyZiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/iOR3rCOOqvYC5Ja8Lz/giphy.gif" class="sticker s-bottom-left" alt="Bouquet Cat">
+        
+        <h1>The Real Gift</h1>
+        <p>Since I can't be there to hand them to you, I've sent something that will never fade.</p>
+        
+        <a href="https://digibouquet.vercel.app/bouquet/a2cb8a9f-0036-438f-ab90-85b84fdc4d88" target="_blank" class="btn" style="background: var(--primary); color: #fff;">Collect Your Bouquet 🌸</a>
+        
+        <div class="footer-text">Happy Birthday, Farida. Wishing you the best!</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        function nextPage(pageNum) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById('page' + pageNum).classList.add('active');
+
+            if (pageNum === 4) {
+                const duration = 3 * 1000;
+                const end = Date.now() + duration;
+
+                (function frame() {
+                    confetti({
+                        particleCount: 3,
+                        angle: 60,
+                        spread: 55,
+                        origin: { x: 0 },
+                        colors: ['#a83279', '#fbc2eb', '#ffffff']
+                    });
+                    confetti({
+                        particleCount: 3,
+                        angle: 120,
+                        spread: 55,
+                        origin: { x: 1 },
+                        colors: ['#a83279', '#fbc2eb', '#ffffff']
+                    });
+
+                    if (Date.now() < end) {
+                        requestAnimationFrame(frame);
+                    }
+                }());
+            }
+        }
+
+        // Prank Logic
+        const gift = document.getElementById('gift-click');
+        const prankBtn = document.getElementById('prank-btn');
+        const giftText = document.getElementById('gift-text');
+        let clickAttempts = 0;
+        let fleeAttempts = 0;
+        const maxFlee = 6;
+
+        gift.addEventListener('click', () => {
+            clickAttempts++;
+            if(clickAttempts < 3) {
+                giftText.innerText = "It's really jammed! Keep trying...";
+                gift.style.transform = `scale(${1 + clickAttempts * 0.1})`;
+            } else {
+                gift.style.display = 'none';
+                giftText.innerText = "The lock is stuck! Use this emergency button instead:";
+                prankBtn.style.display = 'inline-block';
+            }
+        });
+
+        const moveButton = () => {
+            if(fleeAttempts < maxFlee) {
+                const padding = 100;
+                const x = Math.random() * (window.innerWidth - padding * 2) - (window.innerWidth/2 - padding);
+                const y = Math.random() * (window.innerHeight - padding * 2) - (window.innerHeight/2 - padding);
+                
+                prankBtn.style.position = 'absolute';
+                prankBtn.style.transform = `translate(${x}px, ${y}px)`;
+                fleeAttempts++;
+                
+                const messages = [
+                    "Too slow!",
+                    "Catch me!",
+                    "Almost got it!",
+                    "Nope!",
+                    "Try harder!",
+                    "Okay, okay... one more!"
+                ];
+                prankBtn.innerText = messages[fleeAttempts - 1] || "Catch me!";
+            } else {
+                prankBtn.style.position = 'relative';
+                prankBtn.style.transform = 'translate(0, 0)';
+                prankBtn.style.background = 'var(--primary)';
+                prankBtn.style.color = '#fff';
+                prankBtn.innerText = "You win! Click me now ➔";
+            }
+        };
+
+        // Handle both mouse and touch for the "runaway" effect
+        prankBtn.addEventListener('mouseover', (e) => {
+            if (window.innerWidth > 768) moveButton();
+        });
+
+        prankBtn.addEventListener('touchstart', (e) => {
+            if (fleeAttempts < maxFlee) {
+                e.preventDefault();
+                moveButton();
+            }
+        });
+    </script>
+</body>
+</html>
